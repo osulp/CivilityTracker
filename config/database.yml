@@ -1,0 +1,11 @@
+development: &default
+  adapter: sqlite3
+  database: db/CivilityTracker_development.sqlite3
+  encoding: utf8
+  min_messages: warning
+  pool: 2
+  timeout: 5000
+
+test:
+  <<: *default
+  database: db/CivilityTracker_test.sqlite3
