@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140624223105) do
+
+  create_table "civil_entries", force: true do |t|
+    t.integer  "serial"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+  end
+
+  add_index "civil_entries", ["serial"], name: "index_civil_entries_on_serial"
 
 end

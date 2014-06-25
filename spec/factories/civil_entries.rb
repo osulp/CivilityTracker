@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :civil_entry do
-    serial 1
-    reason "MyText"
+    sequence(:serial) {|n| n}
+    reason "This is a reason"
   end
 end
