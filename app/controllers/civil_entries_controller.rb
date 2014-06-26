@@ -8,10 +8,10 @@ class CivilEntriesController < ApplicationController
   end
 
   def update
-    @civil_entry = CivilEntry.where(:serial => params[:id]).first!
+    @civil_entry = CivilEntry.find(params[:id])
     @civil_entry.attributes = civil_entries_params
     @civil_entry.save
-    respond_with @civil_entry
+    respond_with @civil_entry, :location => register_civil_entries_path(:serial => @civil_entry.serial)
   end
 
   def register
@@ -26,7 +26,7 @@ class CivilEntriesController < ApplicationController
   private
 
   def civil_entries_params
-    params.require(:civil_entry).permit(:latitude, :longitude)
+    params.require(:civil_entry).permit(:latitude, :longitude, :reason)
   end
 
   def previously_stored_serial?

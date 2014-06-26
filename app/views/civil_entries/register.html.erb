@@ -1,3 +1,6 @@
-<div data-role="geo-update" data-serial="<%= @card.serial %>">
-
+<div data-role="geo-update" data-serial="<%= @card.serial %>" data-id="<%= @card.id %>">
+  <%= simple_form_for(@card) do |f| %>
+    <%= f.input :reason %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
