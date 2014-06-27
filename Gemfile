@@ -14,7 +14,12 @@ gem 'simple_form', '3.1.0.rc1'
 gem 'uglifier'
 gem 'unicorn'
 gem 'bootstrap-sass'
+# Geocoder for reverse geocoding.
 gem 'geocoder'
+# Draper for decorating
+gem 'draper'
+# Data tables
+gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
 
 group :development do
   gem 'spring'

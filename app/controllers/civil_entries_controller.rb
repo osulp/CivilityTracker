@@ -1,6 +1,11 @@
 class CivilEntriesController < ApplicationController
   respond_to :html, :json
 
+  def index
+    @civil_entries = CivilEntry.all.order("created_at DESC")
+    respond_with(@civil_entries)
+  end
+
   def update
     @civil_entry = CivilEntry.find(params[:id])
     @civil_entry.attributes = civil_entries_params

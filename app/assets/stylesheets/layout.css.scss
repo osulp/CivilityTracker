@@ -12,13 +12,28 @@ body, html, #main {
 .card {
   @include make-row();
   height: 60%;
-  .card-left {
-    @include make-lg-column(2);
-  }
-  .card-right {
-    @include make-lg-column(2);
-  }
   .card-column {
     @include make-lg-column(8);
   }
+}
+
+.left {
+  @include make-lg-column(2);
+}
+.right {
+  @include make-lg-column(2);
+}
+
+#banner {
+  @include make-lg-column(12);
+}
+.content {
+  @include make-row();
+}
+#civil_entries {
+  @include make-lg-column(4);
+}
+#civil-map {
+  @include make-lg-column(4);
+  min-height: 600px;
 }
