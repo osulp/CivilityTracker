@@ -1,12 +1,6 @@
 class CivilEntriesController < ApplicationController
   respond_to :html, :json
 
-  def new
-  end
-
-  def create
-  end
-
   def update
     @civil_entry = CivilEntry.find(params[:id])
     @civil_entry.attributes = civil_entries_params
