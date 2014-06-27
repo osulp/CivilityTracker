@@ -20,6 +20,9 @@ gem 'geocoder'
 gem 'draper'
 # Data tables
 gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
+# QR Code Generation
+gem 'rqrcode_png'
+gem 'dragonfly'
 
 group :development do
   gem 'spring'
