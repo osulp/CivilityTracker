@@ -1,4 +1,9 @@
 en:
+  helpers:
+    submit:
+      civil_entry:
+        update: "Submit"
+        create: "Submit"
   simple_form:
     "yes": 'Yes'
     "no": 'No'

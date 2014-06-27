@@ -28,5 +28,8 @@ RSpec.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, :extensions => [])
+end
 Capybara.javascript_driver = :poltergeist
 WebMock.disable_net_connect!(allow_localhost: true)
