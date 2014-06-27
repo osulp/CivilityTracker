@@ -8,8 +8,10 @@ class GeolocationUpdater
     window.navigator.geolocation.getCurrentPosition(this.updateSerial,null,{enableHighAccuracy: true})
   updateSerial: (data)=>
     coords = data.coords
-    $.post("/civil_entries/#{this.id()}.json", {civil_entry: {latitude: coords.latitude, longitude: coords.longitude}, _method: "patch"}, this.updatedSerial)
-  updatedSerial: ->
+    $.post("/civil_entries/#{this.id()}.json", {civil_entry: {latitude: coords.latitude, longitude: coords.longitude}, _method: "patch"}, this.updatedSerial, 'json')
+  updatedSerial: (data) ->
+    if data.address?
+      $("#location").text(data.address)
   serial: ->
     @serial_number ||= $('*[data-serial]').data("serial")
   id: ->

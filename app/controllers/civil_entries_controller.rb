@@ -19,6 +19,8 @@ class CivilEntriesController < ApplicationController
     unless previously_stored_serial?
       @card.save
       store_serial
+    else
+      @card = CivilEntry.find(session[:stored_serial][params[:serial]])
     end
   end
 
@@ -26,15 +28,19 @@ class CivilEntriesController < ApplicationController
   private
 
   def civil_entries_params
+    if @civil_entry && !@civil_entry.latitude.blank?
+      params[:civil_entry][:longitude] = @civil_entry.longitude
+      params[:civil_entry][:latitude] = @civil_entry.latitude
+    end
     params.require(:civil_entry).permit(:latitude, :longitude, :reason)
   end
 
   def previously_stored_serial?
-    session[:stored_serial] && session[:stored_serial].include?(params[:serial])
+    session[:stored_serial] && session[:stored_serial].has_key?(params[:serial])
   end
 
   def store_serial
-    session[:stored_serial] ||= []
-    session[:stored_serial] << params[:serial]
+    session[:stored_serial] ||= {}
+    session[:stored_serial][params[:serial]] = @card.id
   end
 end

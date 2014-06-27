@@ -12,10 +12,14 @@ describe "registering a card" do
     it "should store the lat/lng of the user", :geolocation => true, :js => true do
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
     end
+    it "should display their location", :geolocation => true, :js => true do
+      expect(page).to have_content("2nd & Jefferson, Corvallis")
+    end
     it "should only accept the lat/lng of the user once", :geolocation => true, :js => true do
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
       expect(CivilEntry.any_instance).not_to receive(:longitude=)
-      visit register_civil_entries_path(:serial => serial)
+      page.execute_script("window.GeolocationUpdater.updateSerial({coords: {longitude: 3, latitude: 2}});")
+      expect(CivilEntry.first.latitude).not_to eq 2
     end
     it "should have a way to add a note" do
       expect(page).to have_field("civil_entry_reason")

@@ -14,6 +14,7 @@ gem 'simple_form', '3.1.0.rc1'
 gem 'uglifier'
 gem 'unicorn'
 gem 'bootstrap-sass'
+gem 'geocoder'
 
 group :development do
   gem 'spring'
