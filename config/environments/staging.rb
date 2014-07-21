@@ -7,5 +7,5 @@ Mail.register_interceptor(
 Rails.application.configure do
   # ...
 
-  config.action_mailer.default_url_options = { host: 'staging.CivilityTracker.com' }
+  config.action_mailer.default_url_options = { host: 'civtracker-dev.library.oregonstate.edu' }
 end
