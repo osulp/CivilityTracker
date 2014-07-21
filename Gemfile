@@ -27,6 +27,7 @@ gem 'dragonfly'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '~> 2.0'
 end
 
 group :development, :test do
