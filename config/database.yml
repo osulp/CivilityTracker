@@ -9,3 +9,19 @@ development: &default
 test:
   <<: *default
   database: db/CivilityTracker_test.sqlite3
+
+production: &production
+  adapter: <%= ENV['CIVILITY_ADAPTER'] || "sqlite3" %>
+  database: <%= ENV['CIVILITY_DB'] || 'db/production.sqlite3' %>
+  encoding: utf8
+  reconnect: false
+  username: <%= ENV['CIVILITY_DB_USERNAME'] %>
+  password: <%= ENV['CIVILITY_DB_PASSWORD'] %>
+  host: <%= ENV['CIVILITY_DB_HOST'] %>
+  port: <%= ENV['CIVILITY_DB_PORT'] %>
+  pool: 5
+  timeout: 5000
+
+staging:
+  <<: *production
+  database: <%= ENV['CIVILITY_DB'] || 'db/staging.sqlite3' %>
