@@ -13,3 +13,5 @@
 /tmp/*
 /.vagrant
 /config/config.yml
+/config/unicorn.rb
+/config/god.conf
