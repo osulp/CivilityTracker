@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
-
 gem 'coffee-rails'
 gem 'email_validator'
 gem 'jquery-rails'
@@ -27,6 +25,7 @@ gem 'dragonfly'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '~> 2.0'
 end
 
 group :development, :test do
@@ -48,4 +47,5 @@ end
 
 group :staging, :production do
   gem 'newrelic_rpm', '>= 3.7.3'
+  gem 'mysql2'
 end
