@@ -10,7 +10,7 @@ gem 'recipient_interceptor'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', '3.1.0.rc1'
 gem 'uglifier'
-gem 'unicorn'
+gem 'passenger'
 gem 'bootstrap-sass'
 # Geocoder for reverse geocoding.
 gem 'geocoder'
