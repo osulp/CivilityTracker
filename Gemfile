@@ -5,24 +5,29 @@ gem 'email_validator'
 gem 'jquery-rails'
 gem 'sqlite3'
 gem 'rack-timeout'
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.0'
 gem 'recipient_interceptor'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '3.1.0.rc1'
 gem 'uglifier'
 gem 'passenger'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 # Geocoder for reverse geocoding.
 gem 'geocoder'
 # Draper for decorating
 gem 'draper'
 # Data tables
-gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
+gem 'jquery-datatables-rails', '~> 3.3.0'
 # QR Code Generation
 gem 'rqrcode_png'
 gem 'dragonfly'
-
+gem 'sprockets', '~>2.0'
+gem 'responders', '~> 2.0'
 group :development do
+  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'capistrano', '~> 2.0'
