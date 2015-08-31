@@ -26,6 +26,7 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'capistrano', '~> 2.0'
+  gem 'coveralls'
 end
 
 group :development, :test do
