@@ -1,6 +1,6 @@
 Civilitytracker
 ===============
-https://circleci.com/gh/:owner/:repo.svg?style=shield&circle-token=:circle-token
+https://circleci.com/gh/osulp/CivilityTracker.svg?style=shield&circle-token=014496d35708a3041503a1d20392440e7983806a
 Getting Started
 ---------------
 
