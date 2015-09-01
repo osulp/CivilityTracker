@@ -23,6 +23,10 @@ class CivilEntriesController < ApplicationController
     end
   end
 
+  def nothing
+
+  end
+
 
   private
 
