@@ -15,11 +15,11 @@ describe CivilEntriesController do
     end
   end
   describe '#update' do
-    context "when there are civil entries" do
+    context "after updating" do
       before do
         put :update, :id => civil_entry, :civil_entry => civil_hash
       end
-      it "should return all civil entries" do
+      it "should update and redirect to the root path" do
         expect(response).to redirect_to root_path
       end
     end
