@@ -15,6 +15,9 @@ Bundler.require(*Rails.groups)
 
 module CivilityTracker
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.i18n.enforce_available_locales = true
 
     config.active_record.default_timezone = :utc
