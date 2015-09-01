@@ -22,6 +22,7 @@ gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
 # QR Code Generation
 gem 'rqrcode_png'
 gem 'dragonfly'
+gem 'coveralls'
 
 group :development do
   gem 'spring'
