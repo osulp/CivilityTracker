@@ -4,5 +4,9 @@ FactoryGirl.define do
   factory :civil_entry do
     sequence(:serial) {|n| n}
     reason "This is a reason"
+    reviewed true
+    factory :unreviewed_civil_entry do
+      reviewed false
+    end
   end
 end

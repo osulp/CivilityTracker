@@ -1,0 +1,27 @@
+<div class="content">
+  <div class="left"></div>
+  <div id="civil_entries">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Card Number</th>
+          <th>Location</th>
+          <th>Reason</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <% if @unreviewed_civil_entries.blank? %>
+          <p>There are currently no entries that need to be reviewed.</p>
+        <% else %>
+          <% @unreviewed_civil_entries.each do |civil_entry| %>
+            <tr>
+              <td><%= civil_entry.serial %></td>
+              <td><%= civil_entry.address %></td>
+              <td><%= civil_entry.reason %></td> 
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
