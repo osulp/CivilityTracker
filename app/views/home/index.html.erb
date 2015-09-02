@@ -15,12 +15,16 @@
         </tr>
       </thead>
       <tbody>
-        <% @civil_entries.each do |civil_entry| %>
-          <tr>
-            <td><%= civil_entry.serial %></td>
-            <td><%= civil_entry.created_at_formatted %></td> 
-            <td><%= civil_entry.address %></td>
-          </tr>
+        <% if @civil_entries.blank? %>
+          <p>There are currently no entries at this time.</p>
+        <% else %>
+          <% @civil_entries.each do |civil_entry| %>
+            <tr>
+              <td><%= civil_entry.serial %></td>
+              <td><%= civil_entry.created_at_formatted %></td> 
+              <td><%= civil_entry.address %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
