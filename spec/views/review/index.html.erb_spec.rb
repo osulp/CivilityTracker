@@ -12,11 +12,11 @@ RSpec.describe "review/index.html.erb" do
   end
   context "When unreviewed entries exist" do
     it "should display those entries with their reasons" do
-      assign(:unreviewed_civil_entries, [create(:civil_entry, :reviewed => false, :reason => "All the reasons!")])
+      assign(:unreviewed_civil_entries, [create(:unreviewed_civil_entry)])
 
       render
 
-      expect(rendered).to have_content("All the reasons!")
+      expect(rendered).to have_content("This is a reason")
     end
   end
 end

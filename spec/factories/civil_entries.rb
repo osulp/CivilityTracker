@@ -5,10 +5,8 @@ FactoryGirl.define do
     sequence(:serial) {|n| n}
     reason "This is a reason"
     reviewed true
-  end
-  factory :unreviewed_civil_entry, :class => CivilEntry do
-    sequence(:serial) {|n| n}
-    reason "This is a reason"
-    reviewed false
+    factory :unreviewed_civil_entry do
+      reviewed false
+    end
   end
 end
