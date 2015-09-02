@@ -11,8 +11,11 @@ RSpec.describe "home/index.html.erb" do
     end
   end
   context "When reviewed entries exist" do
-    it "should display those entries with their reasons" do
-      assign(:civil_entries, [create(:civil_entry, :reviewed => true, :address => "123 Place place")])
+    it "should display those entries" do
+      stubbed_model = stub_model(CivilEntry, :address => "123 Place place")
+      allow(stubbed_model).to receive(:created_at_formatted).and_return("123")
+
+      assign(:civil_entries, [stubbed_model])
 
       render
 
