@@ -10,7 +10,7 @@ class CivilEntriesController < ApplicationController
     @civil_entry = CivilEntry.find(params[:id])
     @civil_entry.attributes = civil_entries_params
     @civil_entry.save
-    respond_with @civil_entry, :location => register_civil_entries_path(:serial => @civil_entry.serial)
+    respond_with @civil_entry, :location => root_path
   end
 
   def register
