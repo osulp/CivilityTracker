@@ -17,6 +17,7 @@ RSpec.describe "review/index.html.erb" do
       render
 
       expect(rendered).to have_content("This is a reason")
+      expect(rendered).to have_content("Review this Civility Card")
     end
   end
 end

@@ -7,6 +7,7 @@
           <th>Card Number</th>
           <th>Location</th>
           <th>Reason</th> 
+          <th>Review</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,7 @@
               <td><%= civil_entry.serial %></td>
               <td><%= civil_entry.address %></td>
               <td><%= civil_entry.reason %></td> 
+              <td><%= link_to "Review this Civility Card", :controller => "review", :action => "review_card", :id => civil_entry.id %>
             </tr>
           <% end %>
         <% end %>
