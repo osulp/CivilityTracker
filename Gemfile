@@ -22,7 +22,6 @@ gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
 # QR Code Generation
 gem 'rqrcode_png'
 gem 'dragonfly'
-gem 'coveralls'
 gem 'devise'
 
 group :development do
@@ -37,6 +36,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.14.0'
+  gem 'simplecov'
+  gem 'coveralls', :require => false
 end
 
 group :test do
