@@ -310,6 +310,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   shoulda-matchers
   simple_form (= 3.1.0.rc1)
+  simplecov
   spring
   spring-commands-rspec
   sqlite3
