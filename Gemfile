@@ -23,6 +23,7 @@ gem 'jquery-datatables-rails', :github => "rweng/jquery-datatables-rails"
 gem 'rqrcode_png'
 gem 'dragonfly'
 gem 'coveralls'
+gem 'devise'
 
 group :development do
   gem 'spring'
