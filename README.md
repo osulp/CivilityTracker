@@ -1,7 +1,7 @@
 Civilitytracker
 ===============
-[![Coverage Status](https://coveralls.io/repos/osulp/CivilityTracker/badge.svg?branch=master&service=github)](https://coveralls.io/github/osulp/CivilityTracker?branch=master)
 [![Circle CI](https://circleci.com/gh/osulp/CivilityTracker.svg?style=shield&circle-token=014496d35708a3041503a1d20392440e7983806a)](https://circleci.com/gh/osulp/CivilityTracker.svg?style=shield&circle-token=014496d35708a3041503a1d20392440e7983806a)
+[![Coverage Status](https://coveralls.io/repos/osulp/CivilityTracker/badge.svg?branch=master&service=github)](https://coveralls.io/github/osulp/CivilityTracker?branch=master)
 Getting Started
 ---------------
 
