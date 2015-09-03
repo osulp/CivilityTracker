@@ -45,4 +45,15 @@ RSpec.describe ReviewController do
       end
     end
   end
+
+  context "#review_card" do
+    before do
+      get :review_card, :id => unreviewed_civil_entry.id, :format => :json
+    end
+
+    it "should set the card to reviewed" do
+      expect(unreviewed_civil_entry.reviewed).to eq false
+      expect(json_response["reviewed"]).to eq true
+    end
+  end
 end
