@@ -6,6 +6,16 @@ class ReviewController < ApplicationController
     respond_with @unreviewed_civil_entries
   end
 
+  def destroy
+    @entry = find_entry
+    if @entry.destroy
+      flash[:success] = "Sucessfully deleted."
+    else
+      flash[:error] = "Error in deleting entry."
+    end 
+    respond_with @entry, :location => review_index_path
+  end
+
   def review_card
     @entry = find_entry
     @entry.review!

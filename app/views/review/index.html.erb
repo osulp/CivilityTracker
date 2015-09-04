@@ -8,6 +8,7 @@
           <th>Location</th>
           <th>Reason</th> 
           <th>Review</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +20,8 @@
               <td><%= civil_entry.serial %></td>
               <td><%= civil_entry.address %></td>
               <td><%= civil_entry.reason %></td> 
-              <td><%= link_to "Review this Civility Card", :controller => "review", :action => "review_card", :id => civil_entry.id %>
+              <td><%= link_to "Review this Civility Card", :controller => "review", :action => "review_card", :id => civil_entry.id %> </td>
+              <td><%= link_to "Delete this Civility Card", review_path(civil_entry.id), :method => :delete %></td>
             </tr>
           <% end %>
         <% end %>
