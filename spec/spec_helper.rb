@@ -21,6 +21,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.include Devise::TestHelpers, type: :controller
   config.include Features, type: :feature
   config.include Formulaic::Dsl, type: :feature
 
