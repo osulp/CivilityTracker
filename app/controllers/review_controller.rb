@@ -1,4 +1,4 @@
-class ReviewController < ApplicationController
+class ReviewController < AdminController
   respond_to :html, :json
 
   def index
