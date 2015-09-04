@@ -1,6 +1,8 @@
 <div id="banner">
-  <% if current_user && current_user.admin? %>
-    <%= link_to "Admin Panel", admin_index_path %>
+  <% if current_user %>
+    <% if current_user.admin? %>
+      <%= link_to "Admin Panel", admin_index_path %>
+    <% end %>
   <% end %>
 </div>
 <div class="content">
