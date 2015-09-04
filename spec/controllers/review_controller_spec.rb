@@ -56,4 +56,14 @@ RSpec.describe ReviewController do
       expect(json_response["reviewed"]).to eq true
     end
   end
+  context "#destroy" do
+    it "should delete the entry" do
+      reviewed_civil_entry
+      expect(CivilEntry.all.length).to eq 1
+
+      get :destroy, :id => reviewed_civil_entry.id, :format => :json
+
+      expect(CivilEntry.all.length).to eq 0
+    end
+  end
 end
