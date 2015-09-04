@@ -19,8 +19,14 @@ class ReviewController < AdminController
   def review_card
     @entry = find_entry
     @entry.review!
-    @entry.save
-    respond_with @entry, :location => review_index_path
+    if @entry.save
+      flash[:success] = "Sucessfully reviewed."
+    else
+      flash[:error] = "Error in reviewing entry."
+    end 
+    respond_with(@entry) do |format|
+      format.html {redirect_to review_index_path }
+    end
   end
 
   private
