@@ -1,44 +1,51 @@
-<div id="banner">
-  <% if current_user && current_user.admin? %>
-    <%= link_to "Admin Panel", admin_index_path %>
-  <% end %>
-</div>
-<div class="content">
-  <h1>Welcome to the OSU Libraries and Press Civility Tracker</h1>
-</div>
-<div class="content">
-  <div class="left"></div>
-  <div id="civil_entries">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Card Number</th>
-          <th>Received</th>
-          <th>Location</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if @civil_entries.blank? %>
-          <p>There are currently no entries at this time.</p>
-        <% else %>
-          <% @civil_entries.each do |civil_entry| %>
-            <tr>
-              <td><%= civil_entry.serial %></td>
-              <td><%= civil_entry.created_at_formatted %></td> 
-              <td><%= civil_entry.address %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
+<div class="page-content">
+  <%= render :partial => "layouts/header" %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="content">
+        <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-5" id="civil_entries">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Card Number</th>
+                  <th>Received</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @civil_entries.each do |civil_entry| %>
+                  <tr>
+                    <td><%= civil_entry.serial %></td>
+                    <td><%= civil_entry.created_at_formatted %></td> 
+                    <td><%= civil_entry.address %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-5">
+            <div class="row">
+              <div class="col-xs-12">
+                <div id="civil-map"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>
+                  Want to know more about <a href="http://library.oregonstate.edu/civility">Civility at OSU</a>?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1"></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="pull-left">
-    <p>
-    Want to know more about <a href="http://library.oregonstate.edu/civility">Civility at OSU</a>?
-    </p>
-  </div>
-  <div id="civil-map">
-  </div>
-  <div class="right">
-  </div>
-</div>
+
+  <div class="push"></div>
+
+<%= render :partial => "layouts/footer" %>

@@ -1,0 +1,32 @@
+<div class="row" id="navbar-img">
+  <div class="col-xs-8">
+    <img src="../assets/sunLogo.gif" class="pull-left" style="height:100%; width:auto;" />
+  </div>
+  <div class="col-xs-4">
+    <ul id="navlinks">
+      <li class="link">
+        <%= link_to "Home", root_path %>
+      </li>
+      <li class="link">
+        <% if current_user && current_user.admin? %>
+          <%= link_to "Admin Panel", admin_index_path %>
+        <% end %>
+      </li>
+      <li class="link">
+        <% if current_user %>
+          <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+          <%= link_to "Sign in", user_session_path %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" id="title-row">
+  <div class="col-xs-12">
+    <div class="content" id="title">
+      <h1>Welcome to the OSU Libraries and Press Civility Tracker</h1>
+    </div>
+  </div>
+</div>

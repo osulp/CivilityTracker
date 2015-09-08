@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20150902233824) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address",    limit: 255
-    t.boolean  "reviewed",               default: false
+    t.string   "address"
+    t.boolean  "reviewed",   default: false
   end
 
   add_index "civil_entries", ["serial"], name: "index_civil_entries_on_serial"

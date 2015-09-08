@@ -3,12 +3,13 @@ body, html, #main {
 }
 #main {
   @extend .container-fluid;
-  text-align: center;
 }
+
 .spacer {
   @include make-row();
   height: 20%;
 }
+
 .card {
   @include make-row();
   height: 60%;
@@ -17,23 +18,58 @@ body, html, #main {
   }
 }
 
-.left {
-  @include make-lg-column(2);
-}
-.right {
-  @include make-lg-column(2);
+#civil-entries {
+  margin-right: 10px;
 }
 
-#banner {
-  @include make-lg-column(12);
-}
-.content {
-  @include make-row();
-}
-#civil_entries {
-  @include make-lg-column(4);
-}
 #civil-map {
-  @include make-lg-column(4);
+  margin-left: 10px;
+  margin-bottom: 10px;
   min-height: 600px;
+}
+
+#title {
+  text-align: center;
+}
+
+#title-row {
+  background-color: #373737;
+  color: #f5f2ed;
+  margin: 0 -100px 45px -100px;
+}
+
+.page-content {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -120px;
+  text-align: center;
+}
+
+.footer, .push {
+  height: 120px;
+}
+
+#footer-row {
+  background-color: #373737;
+  margin-top: 45px;
+  height: 120px;
+  color: #f5f2ed;
+}
+
+#navlinks {
+  display: block;
+  list-style-type: none;
+  margin: auto 0 auto 0;
+}
+
+.link {
+  margin-top: 15px;
+  width: 100px;
+  height: 15px;
+  color: #a7c4c9;
+}
+
+.link > a:hover {
+  background-color: #eeb111;
 }
