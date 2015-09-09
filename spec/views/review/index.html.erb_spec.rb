@@ -28,8 +28,8 @@ RSpec.describe "review/index.html.erb" do
     end
     it "should display those entries with their reasons" do
       expect(page).to have_content("This is a reason")
-      expect(page).to have_content("Review this Civility Card")
-      expect(page).to have_content("Delete this Civility Card")
+      expect(page).to have_content("Approve this Entry")
+      expect(page).to have_content("Delete this Entry")
     end
   end
 end
