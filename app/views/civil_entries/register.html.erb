@@ -1,22 +1,15 @@
-<div class=page-content">
-  <%= render :partial => "layouts/header" %>
-  
-  <div class="spacer">
-  </div>
-  <div class="card">
-    <div class="left"></div>
-    <div class="card-column" data-role="geo-update" data-serial="<%= @card.serial %>" data-id="<%= @card.id %>">
-      <h1>You received a civility card!</h1>
-      <h3>Your receipt has been logged at <span id="location"></span></h3>
-      <%= simple_form_for(@card) do |f| %>
-        <%= f.input :reason, :label => "Why did you receive this civility card?" %>
-      <%= f.button :submit %>
-    <% end %>
-    </div>
-    <div class="right"></div>
-  </div>
-  <div class="spacer"></div>
-  <div class="push"></div>
+<div class="spacer">
 </div>
-
-<%= render :partial => "layouts/footer" %>
+<div class="card">
+  <div class="left"></div>
+  <div class="card-column" data-role="geo-update" data-serial="<%= @card.serial %>" data-id="<%= @card.id %>">
+    <h1>You received a civility card!</h1>
+    <h3>Your receipt has been logged at <span id="location"></span></h3>
+    <%= simple_form_for(@card) do |f| %>
+      <%= f.input :reason, :label => "Why did you receive this civility card?" %>
+    <%= f.button :submit %>
+  <% end %>
+  </div>
+  <div class="right"></div>
+</div>
+<div class="spacer"></div>
