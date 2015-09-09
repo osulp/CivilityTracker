@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe ReviewController do
-  let(:unreviewed_civil_entry) {create(:unreviewed_civil_entry)}
+  let(:unreviewed_civil_entry) {create(:civil_entry, :unreviewed_civil_entry)}
   let(:reviewed_civil_entry) {create(:civil_entry)}
   let(:json_response) {JSON.parse(response.body)}
   let(:user) {nil}
