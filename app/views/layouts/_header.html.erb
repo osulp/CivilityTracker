@@ -1,24 +1,26 @@
 <div class="row" id="navbar-img">
   <div class="col-xs-8">
-    <img src="../assets/sunLogo.gif" class="pull-left" style="height:100%; width:auto;" />
+    <a href="/">
+      <img src="../../assets/sunLogo.gif" class="pull-left" style="height:100%; width:auto;" />
+    </a>
   </div>
   <div class="col-xs-4">
     <ul id="navlinks">
-      <li class="link">
-        <%= link_to "Home", root_path %>
-      </li>
-      <li class="link">
-        <% if current_user && current_user.admin? %>
-          <%= link_to "Admin Panel", admin_index_path %>
-        <% end %>
-      </li>
-      <li class="link">
-        <% if current_user %>
-          <%= link_to "Sign out", destroy_user_session_path %>
-        <% else %>
-          <%= link_to "Sign in", user_session_path %>
-        <% end %>
-      </li>
+      <% if current_user %>
+        <li class="link">
+          <h4><%= link_to "Home", root_path %></h4>
+        </li>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+        <li class="link">
+          <h4><%= link_to "Admin Panel", admin_index_path %></h4>
+        </li>
+      <% end %>
+      <% if current_user %>
+        <li class="link">
+          <h4><%= link_to "Sign out", destroy_user_session_path %></h4>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

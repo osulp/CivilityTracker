@@ -59,17 +59,23 @@ body, html, #main {
 
 #navlinks {
   display: block;
+  height: 100%;
   list-style-type: none;
-  margin: auto 0 auto 0;
+  margin: 45px 0 auto 0;
 }
 
 .link {
   margin-top: 15px;
-  width: 100px;
-  height: 15px;
+  width: 130px;
+  height: 25px;
   color: #a7c4c9;
 }
 
-.link > a:hover {
-  background-color: #eeb111;
+.link:hover {
+  background-color: #a7c4c9;
+  color: #385e86;
+}
+
+#osu-logo {
+  margin: 25px 45px 25px 45px;
 }
