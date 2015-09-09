@@ -1,31 +1,38 @@
-<div class="content">
-  <div class="left"></div>
-  <div id="civil_entries">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Card Number</th>
-          <th>Location</th>
-          <th>Reason</th> 
-          <th>Review</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if @unreviewed_civil_entries.blank? %>
-          <p>There are currently no entries that need to be reviewed.</p>
-        <% else %>
-          <% @unreviewed_civil_entries.each do |civil_entry| %>
-            <tr>
-              <td><%= civil_entry.serial %></td>
-              <td><%= civil_entry.address %></td>
-              <td><%= civil_entry.reason %></td> 
-              <td><%= link_to "Review this Civility Card", :controller => "review", :action => "review_card", :id => civil_entry.id %> </td>
-              <td><%= link_to "Delete this Civility Card", review_path(civil_entry.id), :method => :delete %></td>
-            </tr>
+<div class="page-content">
+  <%= render :partial => "layouts/header" %>
+
+  <div class="content">
+    <div class="left"></div>
+    <div id="civil_entries">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Card Number</th>
+            <th>Location</th>
+            <th>Reason</th> 
+            <th>Review</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @unreviewed_civil_entries.blank? %>
+            <p>There are currently no entries that need to be reviewed.</p>
+          <% else %>
+            <% @unreviewed_civil_entries.each do |civil_entry| %>
+              <tr>
+                <td><%= civil_entry.serial %></td>
+                <td><%= civil_entry.address %></td>
+                <td><%= civil_entry.reason %></td> 
+                <td><%= link_to "Review this Civility Card", :controller => "review", :action => "review_card", :id => civil_entry.id %> </td>
+                <td><%= link_to "Delete this Civility Card", review_path(civil_entry.id), :method => :delete %></td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <div class="push"></div>
 </div>
+
+<%= render :partial => "layouts/footer" %>
