@@ -11,8 +11,13 @@
 <body class="<%= body_class %>">
   <%= render 'flashes' -%>
   <div id="main">
-   <%= yield %>
+    <div class="page-content">
+      <%= render :partial => "layouts/header" %>
+      <%= yield %>
+      <div class="push"></div>
+    </div>
   </div>
+  <%= render :partial => "layouts/footer" %>
   <%= render 'javascript' %>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 </body>

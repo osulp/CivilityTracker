@@ -284,6 +284,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano (~> 2.0)
+  capybara
   coffee-rails
   coveralls
   database_cleaner

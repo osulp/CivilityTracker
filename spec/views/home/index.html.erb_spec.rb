@@ -28,9 +28,17 @@ RSpec.describe "home/index.html.erb" do
   end
 
   context "When signed in as an admin" do
+    let(:user) {create(:user, :admin)}
+    before do
+      visit new_user_session_path
+      fill_in "Email", :with => user.email
+      fill_in "Password", :with => "password"
+      click_button "Log in"
+
+      visit admin_index_path
+    end
     it "should not display the admin panel" do
-      render
-      expect(rendered).to have_content("Admin Panel")
+      expect(page).to have_content("Admin Panel")
     end
 
   end
