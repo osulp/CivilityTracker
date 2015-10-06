@@ -13,7 +13,7 @@ describe "registering a card" do
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
     end
     it "should display their location", :geolocation => true, :js => true do
-      expect(page).to have_content("2nd & Jefferson, Corvallis")
+      expect(page).to have_content("Corvallis, Oregon, United States")
     end
     it "should only accept the lat/lng of the user once", :geolocation => true, :js => true do
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
