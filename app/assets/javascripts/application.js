@@ -16,4 +16,6 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require google-analytics
+//= require tinymce-jquery
+//= require tinymce-default
 //= require_tree .
