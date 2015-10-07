@@ -1,0 +1,5 @@
+About:
+  tag_attributes:
+    type: text
+    class: tinymce
+    default: ""
