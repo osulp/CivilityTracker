@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   get "review_item/:id", :to => 'review#review_card', :as => 'review_card'
   get '/admin', :to => 'admin#index', :as => 'admin_index'
+  get '/about', :to => 'about#index', :as => "about_us"
+
+  namespace :admin do
+    resources :settings
+  end
 
   get 'entry/qr/:serial' => Dragonfly.app.endpoint { |params, app|
     app.generate(:qr, "http://#{Rails.application.config.action_mailer.default_url_options[:host]}/entry/#{params[:serial]}")

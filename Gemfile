@@ -24,7 +24,7 @@ gem 'rqrcode_png'
 gem 'dragonfly'
 gem 'devise'
 gem 'capybara'
-
+gem 'tinymce-rails', '4.0.11'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'

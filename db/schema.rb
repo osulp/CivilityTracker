@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902233824) do
+ActiveRecord::Schema.define(version: 20151007181747) do
 
   create_table "civil_entries", force: :cascade do |t|
     t.integer  "serial"
@@ -20,11 +20,20 @@ ActiveRecord::Schema.define(version: 20150902233824) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address"
-    t.boolean  "reviewed",   default: false
+    t.string   "address",    limit: 255
+    t.boolean  "reviewed",               default: false
   end
 
   add_index "civil_entries", ["serial"], name: "index_civil_entries_on_serial"
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "setting_name"
+    t.text     "value"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "settings", ["setting_name"], name: "index_settings_on_setting_name"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
