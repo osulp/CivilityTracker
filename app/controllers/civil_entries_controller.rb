@@ -9,7 +9,11 @@ class CivilEntriesController < ApplicationController
   def update
     @civil_entry = CivilEntry.find(params[:id])
     @civil_entry.attributes = civil_entries_params
-    @civil_entry.save
+    if @civil_entry.save
+      flash[:success] = "Thank you for submitting an entry. Your card is currently under review"
+    else
+      flash[:error] = "There was an error saving your entry."
+    end
     respond_with @civil_entry, :location => root_path
   end
 
