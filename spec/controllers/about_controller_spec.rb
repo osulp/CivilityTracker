@@ -9,7 +9,6 @@ RSpec.describe AboutController do
     end
     it "should render the index template" do
       get :index
-      # binding.pry
       expect(response).to render_template("index")
     end
   end
