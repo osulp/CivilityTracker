@@ -21,6 +21,7 @@ describe CivilEntriesController do
       end
       it "should update and redirect to the root path" do
         expect(response).to redirect_to root_path
+        expect(flash[:success]).to have_content("Thank you for submitting an entry. Your card is currently under review")
       end
     end
   end
