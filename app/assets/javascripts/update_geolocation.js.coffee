@@ -1,5 +1,7 @@
 jQuery ->
   if $('*[data-role="geo-update"][data-id]').length > 0
+    $("input[type=submit]").prop("disabled",true)
+    $(".loc-info").hide()
     window.GeolocationUpdater = new GeolocationUpdater
 
 class GeolocationUpdater
@@ -12,6 +14,9 @@ class GeolocationUpdater
   updatedSerial: (data) ->
     if data.address?
       $("#location").text(data.address)
+      $("input[type=submit]").prop("disabled",false)
+      $(".loc-info").show()
+      $(".loading").hide()
   serial: ->
     @serial_number ||= $('*[data-serial]').data("serial")
   id: ->

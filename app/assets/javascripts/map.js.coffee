@@ -4,7 +4,7 @@ class MapManager
   constructor: ->
     return unless this.mapElement()?
     @map = new google.maps.Map(this.mapElement(), this.options())
-    $.getJSON('/civil_entries.json', this.createMarkers)
+    $.getJSON('/entry.json', this.createMarkers)
   createMarkers: (data) =>
     @markers ||= []
     @latlngs ||= []

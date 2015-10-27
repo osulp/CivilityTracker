@@ -3,8 +3,15 @@ require 'spec_helper'
 describe "registering a card" do
   context "when a card's path is visited" do
     let(:serial) {rand(3000)}
+    let(:loading) { find("h3.loading") }
+    let(:wait_notification) { "Retrieving location, please wait..." }
     before do
       visit register_civil_entries_path(:serial => serial)
+    end
+
+    it "should display loading indicator to retrieve location" do
+      expect(loading.text).to have_content(wait_notification)
+      expect(loading).to be_visible
     end
     it "should create a civil entry" do
       expect(CivilEntry.count).to eq 1
@@ -14,6 +21,7 @@ describe "registering a card" do
     end
     it "should display their location", :geolocation => true, :js => true do
       expect(page).to have_content("Corvallis, Oregon, United States")
+      expect(page).not_to have_content(wait_notification)
     end
     it "should only accept the lat/lng of the user once", :geolocation => true, :js => true do
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
