@@ -1,5 +1,6 @@
-<div id="flash">
+<div class="flash_messages">
   <% flash.each do |key, value| -%>
-    <div id="flash_<%= key %>"><%= value %></div>
+    <div id="flash_<%= key %>" class="alert <%= bootstrap_class_for(key) %>"><%= value %>
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
   <% end -%>
 </div>
