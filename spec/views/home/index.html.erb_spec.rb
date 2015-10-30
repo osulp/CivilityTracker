@@ -25,6 +25,11 @@ RSpec.describe "home/index.html.erb" do
       render
       expect(rendered).not_to have_content("Admin Panel")
     end
+    it "should not display the delete row" do
+      render
+      expect(rendered).not_to have_content("Delete")
+    end
+
   end
 
   context "When signed in as an admin" do
@@ -37,10 +42,17 @@ RSpec.describe "home/index.html.erb" do
 
       visit admin_index_path
     end
-    it "should not display the admin panel" do
+    it "should display the admin panel" do
       expect(page).to have_content("Admin Panel")
     end
-
+    context "on the home page" do
+      before do
+        visit root_path
+      end
+      it "should have a row for deleting entries" do
+        expect(page).to have_content("Delete")
+      end
+    end
   end
 
   context "When no reviewed entries exist" do
