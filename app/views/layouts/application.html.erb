@@ -9,10 +9,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render 'flashes' -%>
   <div id="main">
     <div class="page-content">
       <%= render :partial => "layouts/header" %>
+      <%= render 'flashes' %>
       <%= yield %>
       <div class="push"></div>
     </div>
