@@ -2,7 +2,7 @@ class CivilEntriesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @civil_entries = CivilEntry.all.order("created_at DESC")
+    @civil_entries = CivilEntry.where(:reviewed => true).order("created_at DESC")
     respond_with(@civil_entries)
   end
 
