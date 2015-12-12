@@ -4,6 +4,12 @@
   <div class="left"></div>
   <div class="card-column" data-role="geo-update" data-serial="<%= @card.serial %>" data-id="<%= @card.id %>">
     <h1>You received a civility card!</h1>
+    <center>
+    <button type="button" id="getLocation" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Get my location
+    </button>
+    </center>
+
     <h3 class="loading"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>Retrieving location, please wait...</h3>
     <h3 class="loc-info">Your receipt has been logged at <span id="location"></span></h3>
     <%= simple_form_for(@card) do |f| %>
