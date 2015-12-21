@@ -8,20 +8,31 @@
       <button type="button" id="getLocation" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
         Get my location
       </button>
+      <button type="button" id="setManualLoc" class="btn btn-primary" autocomplete="off">
+        Set location manually
+      </button>
       <button type="button" id="setDefaultLoc" class="btn btn-primary" autocomplete="off">
         Defer location to OSU
       </button>
 
     </center>
+    <div id="manual-loc">
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <input type="text" class="form-control" id="address" placeholder="Enter location">
+        </div>
+        <button type="button" class="btn btn-default" id="useAddress">Use this location</button>
+      </form>
+    </div>
     <div id="loc-status">
       <h3 class="loading"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>Retrieving location, please wait...</h3>
       <h3 class="loc-info">Your receipt has been logged at <span id="location"></span></h3>
-    </div>
 
-    <%= simple_form_for(@card) do |f| %>
-      <%= f.input :reason, :label => "Why did you receive this civility card?" %>
-    <%= f.button :submit %>
-  <% end %>
+      <%= simple_form_for(@card) do |f| %>
+        <%= f.input :reason, :label => "Why did you receive this civility card?" %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
   </div>
   <div class="right"></div>
 </div>
