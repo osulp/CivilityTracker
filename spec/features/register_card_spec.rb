@@ -17,13 +17,16 @@ describe "registering a card" do
       expect(CivilEntry.count).to eq 1
     end
     it "should store the lat/lng of the user", :geolocation => true, :js => true do
+      page.execute_script(%Q($("#getLocation").trigger('click')))
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
     end
     it "should display their location", :geolocation => true, :js => true do
+      page.execute_script(%Q($("#getLocation").trigger('click')))
       expect(page).to have_content("Corvallis, Oregon, United States")
       expect(page).not_to have_content(wait_notification)
     end
     it "should only accept the lat/lng of the user once", :geolocation => true, :js => true do
+      page.execute_script(%Q($("#getLocation").trigger('click')))
       expect(CivilEntry.first.latitude).to eq 44.56222682932014
       expect(CivilEntry.any_instance).not_to receive(:longitude=)
       page.execute_script("window.GeolocationUpdater.updateSerial({coords: {longitude: 3, latitude: 2}});")
