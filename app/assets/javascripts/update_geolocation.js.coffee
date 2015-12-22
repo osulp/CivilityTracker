@@ -45,7 +45,7 @@ class GeolocationUpdater
   unless navigator.geolocation then alert "Your browser can not support geolocation."
   constructor: ->
     return if this.id() == ""
-    window.navigator.geolocation.getCurrentPosition(this.updateSerial,this.onError,{timeout: 30000, enableHighAccuracy: true})
+    window.navigator.geolocation.getCurrentPosition(this.updateSerial,this.onError,{timeout: 10000, enableHighAccuracy: true})
   onError: (err) ->
     $('#getLocation').button('reset')
     switch err.code
@@ -56,7 +56,7 @@ class GeolocationUpdater
       when err.POSITION_UNAVAILABLE
         alert("Position Unavailable") # err 2
       when err.TIMEOUT
-        alert("Timeout - The request to get user location timed out.") # err 3
+        alert("Your browser may not support location requests. Try again using another browser, use another qr scanner, or enter your location manually.") # err 3
       else alert("An unknown error occurred.")
   userDeniedLocation: ->
     alert("An unknown error occurred.")

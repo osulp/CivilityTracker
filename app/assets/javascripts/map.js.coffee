@@ -10,12 +10,18 @@ class MapManager
       @markers ||= []
       @latlngs ||= []
       for entry in data
+        date = new Date(entry.created_at)
+        normalizedDate = new Date(date - (date.getTimezoneOffset() * 60 * 1000))
+        infowindow = new google.maps.InfoWindow({
+          content: "#{entry.reason} recorded on #{normalizedDate.toISOString().split("T")[0]}"
+        })
         latlng = new google.maps.LatLng(entry.latitude, entry.longitude)
         marker = new google.maps.Marker({
           position: latlng
           map: @map
           title: "#{entry.reason}"
         })
+        marker.addListener 'click', (e) => infowindow.open(@map, marker)
         @markers.push marker
         @latlngs.push latlng
       bounds = new google.maps.LatLngBounds()
