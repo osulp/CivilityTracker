@@ -5,17 +5,18 @@ body, html, #main {
   @extend .container-fluid;
 }
 
+#home-pane {
+  margin-top: 45px;
+}
+.flash_messages {
+  margin-top: 1em;
+}
 .spacer {
   @include make-row();
   height: 20%;
 }
 
 .card {
-  @include make-row();
-  height: 60%;
-  .card-column {
-    @include make-lg-column(8);
-  }
 }
 
 #civil-entries {
@@ -35,7 +36,7 @@ body, html, #main {
 #title-row {
   background-color: #373737;
   color: #f5f2ed;
-  margin-bottom:45px;
+  margin-bottom:0px
 }
 
 .page-content {
@@ -82,8 +83,18 @@ body, html, #main {
 .card-action {
   margin-bottom: 15px;
 }
+.sunlogo-xs {
+  display: none;
+}
 @media (max-width: 768px) {
   #title h1{
     font-size: 21px;
   }
+  .sunlogo-xs {
+    display: block;
+  }
+  .sunlogo-md {
+    display:none;
+  }
+
 }
