@@ -87,8 +87,12 @@ body, html, #main {
   display: none;
 }
 
-input.form-control, textarea.form-control {
+.card input.form-control, .card textarea.form-control {
     font-size: 16px;
+}
+
+div.dataTables_filter input {
+    width: 14em;
 }
 
 @media (max-width: 768px) {
