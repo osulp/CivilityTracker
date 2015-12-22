@@ -86,6 +86,11 @@ body, html, #main {
 .sunlogo-xs {
   display: none;
 }
+
+input.form-control, textarea.form-control {
+    font-size: 16px;
+}
+
 @media (max-width: 768px) {
   #title h1{
     font-size: 21px;
