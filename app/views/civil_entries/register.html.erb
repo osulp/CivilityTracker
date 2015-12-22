@@ -43,7 +43,7 @@
           <h3 class="loc-info">Your receipt has been logged at <span id="location"></span></h3>
 
           <%= simple_form_for(@card) do |f| %>
-            <%= f.input :reason, :label => "Why did you receive this civility card?" %>
+            <%= f.input :reason, :label => "Why did you receive this civility card? You must fill out a reason in order to submit an entry." %>
             <%= f.button :submit %>
           <% end %>
         </div>

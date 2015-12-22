@@ -18,4 +18,5 @@
 //= require google-analytics
 //= require tinymce-jquery
 //= require tinymce-default
+//= require toggle_button
 //= require_tree .
