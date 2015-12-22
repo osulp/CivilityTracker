@@ -15,8 +15,8 @@
       <%= render 'flashes' %>
       <%= yield %>
       <div class="push"></div>
+      <%= render :partial => "layouts/footer" %>
     </div>
-    <%= render :partial => "layouts/footer" %>
   </div>
   <%= render 'javascript' %>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
