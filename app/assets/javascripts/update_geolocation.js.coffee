@@ -27,8 +27,7 @@ jQuery ->
           $(".loading").hide()
           $("#loc-status").show()
           $("#location").text(results[0].formatted_address)
-          $("input[type=submit]").prop("disabled",false)
-          # alert(JSON.stringify(results[0].formatted_address))
+          $("input[type=submit]").prop("disabled",true)
         else
           alert("not valid")
 
@@ -40,7 +39,7 @@ jQuery ->
       $("#manual-loc").hide()
       $("#loc-status").show()
       $("#location").text("Corvallis, Oregon, United States")
-      $("input[type=submit]").prop("disabled",false)
+      $("input[type=submit]").prop("disabled",true)
 
 class GeolocationUpdater
   unless navigator.geolocation then alert "Your browser can not support geolocation."
@@ -69,7 +68,7 @@ class GeolocationUpdater
       $("#getLocation").hide()
       $("#loc-status").show()
       $("#location").text(data.address)
-      $("input[type=submit]").prop("disabled",false)
+      $("input[type=submit]").prop("disabled",true)
       $(".loading").hide()
   serial: ->
     @serial_number ||= $('*[data-serial]').data("serial")
