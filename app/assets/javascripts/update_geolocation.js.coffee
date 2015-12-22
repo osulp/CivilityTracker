@@ -37,6 +37,7 @@ jQuery ->
       defaultLon = -123.278821
       $.post("/entry/#{id}.json", {civil_entry: {latitude: defaultLat, longitude: defaultLon}, _method: "patch"}, null, 'json')
       $(".loading").hide()
+      $("#manual-loc").hide()
       $("#loc-status").show()
       $("#location").text("Corvallis, Oregon, United States")
       $("input[type=submit]").prop("disabled",false)
