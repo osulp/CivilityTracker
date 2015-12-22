@@ -86,6 +86,15 @@ body, html, #main {
 .sunlogo-xs {
   display: none;
 }
+
+.card input.form-control, .card textarea.form-control {
+    font-size: 16px;
+}
+
+div.dataTables_filter input {
+    width: 14em;
+}
+
 @media (max-width: 768px) {
   #title h1{
     font-size: 21px;
