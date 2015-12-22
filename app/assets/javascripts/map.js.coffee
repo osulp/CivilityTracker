@@ -40,7 +40,3 @@ class MapManager
     new google.maps.LatLng(44.5651979,-123.2751336)
   zoom: ->
     12
-
-formatDate = (date) ->
-  normalisedDate = new Date(date - (date.getTimezoneOffset() * 60 * 1000))
-  normalisedDate.toISOString().replace /\..+$|[^\d]/g, ''
