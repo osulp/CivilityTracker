@@ -9,6 +9,7 @@ class MapManager
     if data.length > 0 # create markers if one or more datapoints
       @markers ||= []
       @latlngs ||= []
+      @infowindows ||= []
       for entry in data
         date = new Date(entry.created_at)
         normalizedDate = new Date(date - (date.getTimezoneOffset() * 60 * 1000))
@@ -21,14 +22,27 @@ class MapManager
           map: @map
           title: "#{entry.reason}"
         })
-        marker.addListener 'click', (e) => infowindow.open(@map, marker)
         @markers.push marker
+        @infowindows.push infowindow
         @latlngs.push latlng
+
       bounds = new google.maps.LatLngBounds()
       for latlng in @latlngs
         bounds.extend(latlng)
       @map.setCenter(bounds.getCenter())
       @map.fitBounds(bounds)
+
+      index = 0
+
+      for marker in @markers
+        the_window = @infowindows[index]
+        map = @map
+        index = index + 1
+        `google.maps.event.addListener(marker,'click', (function(marker,the_window){
+           return function() {
+             the_window.open(map, marker);
+           };
+        })(marker,the_window))`
   mapElement: ->
     @map_element ||= document.getElementById("civil-map")
   options: ->
