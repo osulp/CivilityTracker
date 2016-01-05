@@ -45,21 +45,21 @@ class GeolocationUpdater
   unless navigator.geolocation then alert "Your browser can not support geolocation."
   constructor: ->
     return if this.id() == ""
-    window.navigator.geolocation.getCurrentPosition(this.updateSerial,this.onError,{timeout: 10000, enableHighAccuracy: true})
+    window.navigator.geolocation.getCurrentPosition(this.updateSerial,this.onError,{timeout: 15000, enableHighAccuracy: true})
   onError: (err) ->
     $('#getLocation').button('reset')
     switch err.code
       when err.UNKNOWN_ERROR
-        userDeniedLocation # err 0
+        unknownError # err 0
       when err.PERMISSION_DENIED
         alert("Your location services might be turned off or disabled. Please turn on location services") # err 1
       when err.POSITION_UNAVAILABLE
         alert("Position Unavailable") # err 2
       when err.TIMEOUT
-        alert("Your browser may not support location requests. Try again using another browser, use another qr scanner, or enter your location manually.") # err 3
-      else alert("An unknown error occurred.")
-  userDeniedLocation: ->
-    alert("An unknown error occurred.")
+        alert("Timeout: Please try again, use another browser/qr-scanner, or enter your location manually.") # err 3
+      else unknownError
+  unknownError: ->
+    alert("An unknown error occurred. Your browser may not support location requests.")
   updateSerial: (data)=>
     coords = data.coords
     $.post("/entry/#{this.id()}.json", {civil_entry: {latitude: coords.latitude, longitude: coords.longitude}, _method: "patch"}, this.updatedSerial, 'json')
