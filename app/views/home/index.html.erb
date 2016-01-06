@@ -1,42 +1,59 @@
 <div class="row" id="home-pane">
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1" id="civil_entries">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Card Number</th>
-          <th>Received</th>
-          <th>Location</th>
-          <th>Reason</th>
-          <% if current_user && current_user.admin? %>
-            <th>Delete</th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% if !@civil_entries || @civil_entries.length == 0 %>
-          There are currently no entries at this time."
-        <% else %>
-          <% @civil_entries.each do |civil_entry| %>
-            <tr>
-              <td><%= civil_entry.serial %></td>
-              <td><%= civil_entry.created_at_formatted %></td> 
-              <td><%= civil_entry.address %></td>
-              <td><%= civil_entry.reason %></td>
-              <% if current_user && current_user.admin? %>
-                <td><%= link_to "Delete this Entry", review_path(civil_entry.id), :method => :delete %></td>
+
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <!-- Nav tabs -->
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a></li>
+      <li role="presentation"><a href="#entries" aria-controls="entries" role="tab" data-toggle="tab">Entries</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="map">
+        <div id="civil-map"></div>
+        <center>
+          Want to know more about <a href="http://library.oregonstate.edu/civility">Civility at OSU</a>?
+        </center>  
+      </div>
+      <div role="tabpanel" class="tab-pane" id="entries">
+        <div id="civil_entries">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Card Number</th>
+                <th>Received</th>
+                <th>Location</th>
+                <th>Reason</th>
+                <% if current_user && current_user.admin? %>
+                  <th>Delete</th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% if !@civil_entries || @civil_entries.length == 0 %>
+                There are currently no entries at this time."
+              <% else %>
+                <% @civil_entries.each do |civil_entry| %>
+                  <tr>
+                    <td><%= civil_entry.serial %></td>
+                    <td><%= civil_entry.created_at_formatted %></td> 
+                    <td><%= civil_entry.address %></td>
+                    <td><%= civil_entry.reason %></td>
+                    <% if current_user && current_user.admin? %>
+                      <td><%= link_to "Delete this Entry", review_path(civil_entry.id), :method => :delete %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
               <% end %>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-    <div id="civil-map"></div>
-    <center>
-      Want to know more about <a href="http://library.oregonstate.edu/civility">Civility at OSU</a>?
-    </center>
-  </div>
+  
 </div>
 </div>
 

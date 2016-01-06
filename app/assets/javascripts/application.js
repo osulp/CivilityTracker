@@ -19,4 +19,5 @@
 //= require tinymce-jquery
 //= require tinymce-default
 //= require toggle_button
+//= require tabs-home
 //= require_tree .
