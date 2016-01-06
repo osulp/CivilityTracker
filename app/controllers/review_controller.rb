@@ -13,7 +13,7 @@ class ReviewController < AdminController
     else
       flash[:error] = "Error in deleting entry."
     end 
-    respond_with @entry, :location => review_index_path
+    respond_with @entry, :location => root_path
   end
 
   def review_card
