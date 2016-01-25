@@ -36,6 +36,6 @@ class ReviewController < AdminController
   end
 
   def unreviewed_entries
-    CivilEntry.where(:reviewed => false)
+    CivilEntry.where(:reviewed => false).where.not(:address => nil).where.not(:reason => nil)
   end
 end
